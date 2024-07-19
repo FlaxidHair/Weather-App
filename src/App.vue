@@ -26,13 +26,17 @@
   margin-top:10px;
 }
 .wrapper {
-  width:900px;
+  width:40vw;
   height:500px;
   border-radius:50px;
   padding:20px;
   background: #1f0f24;
   text-align: center;
   color:#fff;
+  display:flex;
+  flex-flow:column;
+  align-items: center;
+  row-gap:25px;
 }
 .wrapper__title {
    margin-top:50px;
@@ -49,6 +53,7 @@
   font-size: 14px; 
   padding:5px 8px;
   outline:none;
+  text-align: center;
 }
 .wrapper__input:focus {
   border-bottom-color:#6e2d7d;
