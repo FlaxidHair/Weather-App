@@ -6,12 +6,15 @@
     <button v-if="city != ''" class="wrapper__button" @click="getWeather()">Получить погоду</button>
     <button disabled v-else class="wrapper__button">Получить погоду</button>
     <p class="wrapper__error">{{ error }}</p>
-    <div v-if="info != null">
-      <p>
+    <div v-if="info != null" class="wrapper__items">
+      <p class="wrapper__temp">
         {{ showTemp }}
       </p>
       <p class="wrapper__fellslike">
         {{ showFellsLike }}
+      </p>
+      <p class="wrapper__humidity">
+        {{  showHumidity }}
       </p>
     </div>
   </div>
@@ -67,6 +70,11 @@
   background:#746027;
   cursor:not-allowed;
 }
+.wrapper__items {
+  display:flex;
+  flex-flow:column;
+  row-gap:10px;
+}
 </style>
 
 <script>
@@ -85,10 +93,13 @@ export default {
       return "'" + this.city+ "'"
     },
     showTemp () {
-      return "Температура: " + this.info.data.current.temp_c;
+      return "Температура: " + this.info.data.current.temp_c + " C";
     },
     showFellsLike () {
-      return "Ощущается как: " + this.info.data.current.feelslike_c;
+      return "Ощущается как: " + this.info.data.current.feelslike_c + " C";
+    },
+    showHumidity () {
+      return "Влажность: " + this.info.data.current.humidity + " %";
     }
   },
   methods: {
