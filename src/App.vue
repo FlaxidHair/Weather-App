@@ -2,14 +2,15 @@
   <div class="wrapper">
     <h1 class="wrapper__title">Погодное приложение</h1>
     <p class="wrapper__subtitle">Узнать погоду в {{ city=="" ? "вашем городе" : cityName }}</p>
-    <input type="text" v-model="city" class="wrapper__input" placeholder="Введите ваш город">
-    <button v-if="city != ''" class="wrapper__button" @click="getWeather()">Получить погоду</button>
+    <input type="text" v-model="store.city" class="wrapper__input" placeholder="Введите ваш город">
+    <p>{{ store.data }}</p>
+    <button v-if="store.city != ''" class="wrapper__button" @click="store.getWeather()">Получить погоду</button>
     <button disabled v-else class="wrapper__button">Получить погоду</button>
-    <p class="wrapper__error">{{ error }}</p>
-    <div v-if="info != null" class="wrapper__items">
+    <div v-if="store.data != null" class="wrapper__items">
       <p class="wrapper__temp">
         {{ showTemp }}
       </p>
+      <p>{{  }}</p>
       <p class="wrapper__fellslike">
         {{ showFellsLike }}
       </p>
@@ -24,11 +25,9 @@
 import { onMounted } from 'vue';
 import { useStore } from './store/store.js'
 const store = useStore()
-
 onMounted(()=>{
   store.getWeater()
 })
-console.log(store.data)
 // export default {
 //   data() {
 //     return {
