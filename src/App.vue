@@ -20,14 +20,66 @@
   </div>
 </template>
 
+<script setup>
+import { onMounted } from 'vue';
+import { useStore } from './store/store.js'
+const store = useStore()
+
+onMounted(()=>{
+  store.getWeater()
+})
+console.log(store.data)
+// export default {
+//   data() {
+//     return {
+//       city:"",
+//       error:"",
+//       info:null,
+//     }
+//   },
+//   computed:{
+//     cityName() {
+//       return "'" + this.city+ "'"
+//     },
+//     showTemp () {
+//       return "Температура: " + this.info.data.current.temp_c + " C";
+//     },
+//     showFellsLike () {
+//       return "Ощущается как: " + this.info.data.current.feelslike_c + " C";
+//     },
+//     showHumidity () {
+//       return "Влажность: " + this.info.data.current.humidity + " %";
+//     }
+//   },
+//   methods: {
+//     getWeather () {
+//       if(this.city.trim().length < 2) {
+//         this.error = "Нужно название более 1 символа"
+//         return false;
+//       }
+//       this.error = ""
+
+//       axios.get(`http://api.weatherapi.com/v1/current.json?key=6fae45c050604bb9b5e172504241807%20&q=${this.city}&aqi=no`).then((data)=>{
+//         this.info = data;
+
+//       })
+
+//     }
+//   }
+// }
+</script>
+
+
+
+
 <style scoped>
 .wrapper__error {
   color:#d03939;
   margin-top:10px;
 }
 .wrapper {
-  width:40vw;
-  height:500px;
+  width:80vw;
+  height:80vh;
   border-radius:50px;
   padding:20px;
   background: #1f0f24;
@@ -81,50 +133,3 @@
   row-gap:10px;
 }
 </style>
-
-<script>
-import axios from 'axios'
-
-export default {
-  data() {
-    return {
-      city:"",
-      error:"",
-      info:null,
-    }
-  },
-  computed:{
-    cityName() {
-      return "'" + this.city+ "'"
-    },
-    showTemp () {
-      return "Температура: " + this.info.data.current.temp_c + " C";
-    },
-    showFellsLike () {
-      return "Ощущается как: " + this.info.data.current.feelslike_c + " C";
-    },
-    showHumidity () {
-      return "Влажность: " + this.info.data.current.humidity + " %";
-    }
-  },
-  methods: {
-    getWeather () {
-      if(this.city.trim().length < 2) {
-        this.error = "Нужно название более 1 символа"
-        return false;
-      }
-      this.error = ""
-
-      axios.get(`http://api.weatherapi.com/v1/current.json?key=6fae45c050604bb9b5e172504241807%20&q=${this.city}&aqi=no`).then((data)=>{
-        this.info = data;
-
-      })
-
-    }
-  }
-}
-</script>
-
-
-
-
