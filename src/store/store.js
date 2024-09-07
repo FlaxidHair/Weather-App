@@ -16,5 +16,12 @@ export const useStore = defineStore("store", {
         });
     },
   },
-  getters: {},
+  getters: {
+    showTemp() {
+      return this.data.data.current.temp_c + " C";
+    },
+    getterData() {
+      return this.data;
+    },
+  },
 });
