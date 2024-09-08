@@ -20,6 +20,12 @@ export const useStore = defineStore("store", {
     showTemp() {
       return this.data.data.current.temp_c + " C";
     },
+    showHumidity() {
+      return this.data.data.current.humidity + " %";
+    },
+    showDewPoint() {
+      return "Точка росы" + this.data.data.current.dewpoint_c;
+    },
     getterData() {
       return this.data;
     },

@@ -8,6 +8,12 @@
     <div v-if="store.data != null" class="wrapper__items">
       <div class="wrapper__temp">
         {{ store.showTemp }}
+        <div class="wrapper__humidity">
+          {{ store.showHumidity }}
+          <div class="wrapper__dew-point">
+            {{ store.showDewPoint }}
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -20,42 +26,6 @@ const store = useStore()
 onMounted(()=>{
    store.getWeather()
 })
-// export default {
-//   data() {
-//     return {
-//       city:"",
-//       error:"",
-//       info:null,
-//     }
-//   },
-//   computed:{
-//     cityName() {
-//       return "'" + this.city+ "'"
-//     },
-//    
-//     showFellsLike () {
-//       return "Ощущается как: " + this.info.data.current.feelslike_c + " C";
-//     },
-//     showHumidity () {
-//       return "Влажность: " + this.info.data.current.humidity + " %";
-//     }
-//   },
-//   methods: {
-//     getWeather () {
-//       if(this.city.trim().length < 2) {
-//         this.error = "Нужно название более 1 символа"
-//         return false;
-//       }
-//       this.error = ""
-
-//       axios.get(`http://api.weatherapi.com/v1/current.json?key=6fae45c050604bb9b5e172504241807%20&q=${this.city}&aqi=no`).then((data)=>{
-//         this.info = data;
-
-//       })
-
-//     }
-//   }
-// }
 </script>
 
 
