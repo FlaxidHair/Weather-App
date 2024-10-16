@@ -1,29 +1,25 @@
-# Training-Vue
+# Проект WeatherApp
 
-This template should help get you started developing with Vue 3 in Vite.
+Это проект отображения погоды по запросу. с использованием VUE 3 Composition Api.
 
-## Recommended IDE Setup
+### Проект адекватно работает от 560px и до 2560px от ширины экрана
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Начало работы 
 
-## Customize configuration
+Клонируйте репозиторий, командой - git clone https://github.com/FlaxidHair/Weather-App.git
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+Установите все зависимости, командой - npm install 
 
-## Project Setup
+Запустите проект, командой - npm run dev
 
-```sh
-npm install
-```
+Теперь вы можете открыть браузер и перейти по предложенному адресу в терминале, чтобы увидеть приложение в действии!
 
-### Compile and Hot-Reload for Development
+## Функциональные возможности
 
-```sh
-npm run dev
-```
+- Отображение погоды по результатам поискового запроса.
 
-### Compile and Minify for Production
+## Технологии
+- Vue 3: Основной фреймворк для создания пользовательского интерфейса.
+- Axios: для отправки запроса к API.
 
-```sh
-npm run build
-```
+### Если у вас остались вопросы, вы можете написать мне на почту - gaevolix@gmail.com
